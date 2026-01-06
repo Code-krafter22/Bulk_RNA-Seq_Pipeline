@@ -31,3 +31,27 @@ conda create -n rnaseq-r -y -c conda-forge -c bioconda \
   bioconductor-edger bioconductor-limma
 conda activate rnaseq-r
 ```
+
+## Run
+### Text inputs (TSV/CSV)
+```bash
+Rscript bulk_rnaseq_pipeline.R \
+  --counts counts.tsv \
+  --meta metadata.tsv \
+  --outdir results \
+  --sample-col SampleID \
+  --group-col Condition \
+  --ref-level Control
+```
+
+### Excel metadata (XLSX)
+```bash
+Rscript bulk_rnaseq_pipeline.R \
+  --counts counts.tsv \
+  --meta metadata.xlsx \
+  --meta-sheet 1 \
+  --outdir results \
+  --sample-col "Sample ID" \
+  --group-col Condition \
+  --ref-level HC
+  ```
