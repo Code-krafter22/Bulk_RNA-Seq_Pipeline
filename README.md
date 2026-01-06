@@ -2,15 +2,14 @@
 
 ![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white) ![Bioconductor](https://img.shields.io/badge/Bioconductor-3B4BAA?logo=bioconductor&logoColor=white) ![Conda](https://img.shields.io/badge/conda-44A833?logo=anaconda&logoColor=white)
 
-## What this script does
-Given a **raw counts matrix** (genes × samples) and a **metadata table**, the script:
-- Normalizes counts with **edgeR (TMM)** and computes log2-CPM
-- Filters low-expression genes
-- Runs differential expression with **limma-voom** (linear model + empirical Bayes)
-- Writes QC plots (boxplots + voom trend) and DEG result tables
+## Overview
+This script performs bulk RNA-seq differential expression analysis from a **raw counts matrix** and **sample metadata**:
+- **edgeR (TMM)** normalization and log2-CPM calculation  
+- Low-expression gene filtering  
+- **limma-voom** linear modeling with empirical Bayes moderation  
+- QC plots (boxplots + voom mean–variance trend) and DEG result tables  
 
 ## Inputs
-
 ### 1) Counts matrix (`--counts`)
 - Formats: `.tsv / .csv / .txt / .xlsx / .xls`
 - Rows = genes/features, columns = samples
@@ -24,11 +23,9 @@ Given a **raw counts matrix** (genes × samples) and a **metadata table**, the s
   - `--group-col`: group/condition labels (must have ≥2 groups)
 - `--ref-level` must exist in the `--group-col` values
 
-## Install (conda recommended)
+## Install
 ```bash
-conda create -n rnaseq-r -y -c conda-forge -c bioconda \
-  r-base r-optparse r-ggplot2 r-reshape2 r-data.table r-readxl \
-  bioconductor-edger bioconductor-limma
+conda env create -f environment-full.yml
 conda activate rnaseq-r
 ```
 
