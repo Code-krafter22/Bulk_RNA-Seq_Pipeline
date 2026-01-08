@@ -1,0 +1,64 @@
+# =========================
+# R / RStudio
+# =========================
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# =========================
+# OS / editor junk
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+
+# =========================
+# Conda / env folders (don't commit environments)
+# =========================
+conda/
+.env/
+.conda/
+env/
+envs/
+*conda*
+__pycache__/
+
+# =========================
+# Pipeline outputs (customize to your folder names)
+# =========================
+results/
+output/
+outputs/
+plots/
+figures/
+reports/
+logs/
+log/
+tmp/
+temp/
+cache/
+.cache/
+data/processed/
+data/intermediate/
+
+# =========================
+# Exceptions (DO commit these)
+# =========================
+!environment.yml
+!environment_full.yml
+!data/**
+!README.md
+!LICENSE
+
+#====================
+# Nextflow runtime
+#====================
+work/
+.nextflow*
+trace.txt
+report.html
+timeline.html
+dag.html
